@@ -1,0 +1,98 @@
+/* ===== 1. VARIABLES (cambia los colores aquí) ===== */
+:root{
+  color-scheme:light;
+  --azul:#1d4ed8; --azul-osc:#1e3a8a; --azul-cl:#eaf1ff;
+  --morado:#7c3aed; --morado-cl:#f1eaff;
+  --texto:#1e293b; --suave:#64748b; --borde:#dbe3f0; --fondo:#f7f9fd;
+  --alerta:#b45309;
+  --fuente:"Trebuchet MS","Segoe UI",Verdana,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:var(--fuente);color:var(--texto);background:var(--fondo);line-height:1.6}
+a{color:var(--azul)}
+:focus-visible{outline:3px solid var(--morado);outline-offset:2px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+section{padding:56px 0}
+.alt{background:#fff}
+h2{font-size:1.75rem;color:var(--azul-osc);margin-bottom:6px}
+.sub{color:var(--suave);margin-bottom:24px;max-width:62ch}
+.tit{font-size:1.05rem;color:var(--azul-osc);margin:22px 0 10px}
+
+/* ===== 2. NAVEGACIÓN ===== */
+nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--borde)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:58px}
+.logo{font-weight:800;font-size:1.2rem;color:var(--azul-osc);text-decoration:none}
+.logo span{color:var(--morado)}
+nav ul{list-style:none;display:flex;gap:4px;overflow-x:auto;padding:0}
+nav li a{display:block;padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--texto);font-size:.92rem;white-space:nowrap;transition:background .2s}
+nav li a:hover{background:var(--azul-cl)}
+
+/* ===== 3. PORTADA ===== */
+.hero{background:linear-gradient(135deg,var(--azul-osc),var(--azul) 60%,var(--morado));color:#fff;padding:72px 0 64px}
+.hero h1{font-size:clamp(2.4rem,7vw,4rem);letter-spacing:-1px;line-height:1.05}
+.hero .lema{font-size:1.35rem;margin:12px 0 8px}
+.hero .desc{max-width:56ch;opacity:.9;margin-bottom:26px}
+.animar{animation:subir .8s ease both}
+@keyframes subir{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== 4. COMPONENTES ===== */
+.btn{display:inline-block;border:0;cursor:pointer;font:inherit;font-weight:700;padding:11px 20px;border-radius:10px;background:var(--azul);color:#fff;text-decoration:none;transition:transform .15s,background .2s}
+.btn:hover{background:var(--azul-osc);transform:translateY(-1px)}
+.btn.mor{background:var(--morado)} .btn.mor:hover{background:#6d28d9}
+.btn.blanco{background:#fff;color:var(--azul-osc)} .btn.blanco:hover{background:var(--azul-cl)}
+.btn.ghost{background:#fff;color:var(--azul);border:1px solid var(--borde)}
+.btn.ghost:hover{background:var(--azul-cl)}
+.btn.chico{padding:6px 12px;font-size:.85rem}
+.panel{background:#fff;border:1px solid var(--borde);border-radius:16px;padding:22px}
+label{display:block;font-weight:700;font-size:.9rem;margin:12px 0 4px}
+input,select,textarea{width:100%;font:inherit;padding:10px 12px;border:1px solid var(--borde);border-radius:10px;background:#fff;color:var(--texto)}
+input::placeholder,textarea::placeholder{color:#7a8aa5;opacity:1}
+textarea{min-height:220px;resize:vertical}
+.fila{display:flex;gap:10px;flex-wrap:wrap}
+.fila>input{flex:1;min-width:220px;width:auto}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.tarjeta{background:#fff;border:1px solid var(--borde);border-radius:14px;padding:18px;border-top:4px solid var(--azul)}
+.tarjeta:nth-child(even){border-top-color:var(--morado)}
+.tarjeta .ico{font-size:1.8rem}
+.tarjeta h3{font-size:1.05rem;margin:6px 0 4px;color:var(--azul-osc)}
+.tarjeta p,.tarjeta li{font-size:.94rem;color:#334155}
+.tarjeta ul{padding-left:18px}
+.portal{display:flex;flex-direction:column;gap:8px;align-items:flex-start;background:var(--azul-cl);border-radius:12px;padding:14px}
+.portal h4{color:var(--azul-osc)}
+.portal p{font-size:.88rem;color:#334155;flex:1}
+.aviso{background:var(--morado-cl);border-left:4px solid var(--morado);padding:12px 14px;border-radius:8px;font-size:.9rem;margin:14px 0 0}
+.resultado{background:#fff;border:1px solid var(--borde);border-radius:12px;padding:14px 16px;margin-top:12px}
+.resultado h4{color:var(--azul-osc)}
+.resultado small{color:var(--suave)}
+.fuente-tag{display:inline-block;background:var(--morado-cl);color:#5b21b6;font-size:.75rem;font-weight:700;padding:2px 8px;border-radius:6px;margin-right:6px}
+.msg{margin-top:8px;color:var(--suave)}
+.msg.err{color:var(--alerta)}
+
+/* Analizador */
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
+.stat{background:var(--azul-cl);border-radius:10px;padding:8px 14px;font-size:.9rem}
+.stat b{font-size:1.3rem;color:var(--azul-osc);display:block}
+.hallazgo{border-left:4px solid var(--alerta);background:#fffbeb;padding:8px 12px;margin:8px 0;border-radius:6px;font-size:.92rem}
+.hallazgo em{color:var(--alerta);font-style:normal;font-weight:700}
+.coinc{border-left:4px solid var(--morado);background:var(--morado-cl);padding:10px 14px;margin:10px 0;border-radius:8px;font-size:.92rem;word-break:break-word}
+#resultadoAnalisis h3{margin-top:16px;color:var(--azul-osc)}
+#resultadoAnalisis ul{padding-left:20px}
+
+/* APA */
+#refSalida{background:var(--azul-cl);border-radius:10px;padding:14px 14px 14px 2.5rem;text-indent:-1.5rem;margin-top:14px;min-height:54px;word-break:break-word}
+
+/* Lista de verificación */
+.check{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--borde);border-radius:10px;margin:0 0 8px;cursor:pointer;background:#fff;font-weight:400}
+.check input{width:20px;height:20px;margin-top:2px;accent-color:var(--morado);flex:none}
+.barra{height:14px;background:var(--borde);border-radius:99px;overflow:hidden;margin:16px 0 8px}
+.barra div{height:100%;width:0;background:linear-gradient(90deg,var(--azul),var(--morado));transition:width .4s ease}
+
+footer{background:var(--azul-osc);color:#cbd5f5;padding:28px 0;font-size:.88rem;text-align:center}
+
+/* Resultados agrupados por base de datos */
+.grupo{margin-top:18px;border-top:2px solid var(--azul-cl);padding-top:10px}
+.grupo h4{color:var(--azul-osc)}
+.grupo h4 small{display:block;font-weight:400;color:var(--suave);font-size:.82rem}
+.resultado .btn{margin-left:6px}
