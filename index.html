@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AntiPlagio · Investiga, crea y cita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#inicio">Anti<span>Plagio</span></a>
+  <ul>
+    <li><a href="#fuentes">Fuentes</a></li>
+    <li><a href="#analizador">Analizador</a></li>
+    <li><a href="#apa">APA 7</a></li>
+    <li><a href="#guia">Guía</a></li>
+    <li><a href="#lista">Lista</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero" id="inicio"><div class="wrap">
+  <div>
+    <span class="insignia animar">🎓 Herramienta universitaria</span>
+    <h1 class="animar">AntiPlagio</h1>
+    <p class="lema animar" style="animation-delay:.1s">Investiga, crea y cita</p>
+    <p class="desc animar" style="animation-delay:.2s">Busca fuentes confiables, revisa tu texto, genera referencias APA 7 y verifica tu entrega antes de enviarla.</p>
+    <a class="btn blanco animar" style="animation-delay:.3s" href="#fuentes">Empezar a buscar fuentes</a>
+  </div>
+  <ol class="pasos">
+    <li class="animar" style="animation-delay:.25s"><a href="#fuentes"><span class="n">1</span><b>Investiga</b><small>Consulta bases académicas y portales oficiales de Colombia.</small></a></li>
+    <li class="animar" style="animation-delay:.4s"><a href="#analizador"><span class="n">2</span><b>Crea</b><small>Revisa repeticiones, datos sin cita y coincidencias en tu texto.</small></a></li>
+    <li class="animar" style="animation-delay:.55s"><a href="#apa"><span class="n">3</span><b>Cita</b><small>Genera tus referencias en formato APA 7 y cópialas.</small></a></li>
+  </ol>
+</div></header>
+
+<!-- ===== BUSCADOR ===== -->
+<section id="fuentes"><div class="wrap">
+  <h2>🔎 Buscador de fuentes académicas</h2>
+  <p class="sub">Escribe tu tema una sola vez: se usa en todo el flujo (búsqueda, análisis y referencias). Los resultados se unifican, se eliminan duplicados y se ordenan por pertinencia. Se consultan 7 bases de datos abiertas y gratuitas (artículos, libros y datos oficiales de Colombia) y tienes accesos directos a 9 portales académicos y oficiales.</p>
+  <div class="panel">
+    <div class="fila">
+      <input id="tema" type="text" placeholder="Ej: inflación en Colombia, educación rural, cambio climático" aria-label="Tema de búsqueda">
+      <button class="btn" id="btnBuscar">Buscar fuentes</button>
+    </div>
+    <h3 class="tit">Buscar directamente en estos portales</h3>
+    <div class="grid" id="portales"></div>
+    <h3 class="tit">Resultados en bases de datos académicas y oficiales</h3>
+    <p class="msg" id="msgBuscar">Escribe un tema y pulsa «Buscar fuentes».</p>
+    <div id="resultadosFuentes"></div>
+  </div>
+</div></section>
+
+<!-- ===== ANALIZADOR ===== -->
+<section id="analizador" class="alt"><div class="wrap">
+  <h2>🧪 Analizador de texto</h2>
+  <p class="sub">Pega un fragmento de tu trabajo. La revisión se hace en tu navegador: el texto no se envía a ningún servidor.</p>
+  <div class="panel">
+    <p class="msg"><b class="temaActivo"></b></p>
+    <label for="texto">Tu texto</label>
+    <textarea id="texto" placeholder="Pega aquí tu fragmento…"></textarea>
+    <div class="fila" style="margin-top:12px;align-items:center">
+      <button class="btn mor" id="btnAnalizar">Analizar texto</button>
+      <button class="btn ghost" id="btnLimpiar">Limpiar</button>
+      <span id="contadorVivo" class="msg" style="margin:0">0 palabras</span>
+    </div>
+    <div id="resultadoAnalisis" aria-live="polite"></div>
+    <h3 class="tit">Buscar coincidencias en Internet</h3>
+    <p class="msg" style="margin:0 0 10px">Toma fragmentos de tu texto y los compara con Wikipedia en español y con los resúmenes de OpenAlex, Crossref, DOAJ, Europe PMC y Semantic Scholar. Requiere conexión a Internet.</p>
+    <button class="btn" id="btnCoinc">Buscar coincidencias</button>
+    <p class="msg" id="msgCoinc"></p>
+    <div id="resultadoCoincidencias" aria-live="polite"></div>
+    <div class="aviso"><b>Limitaciones:</b> la búsqueda solo cubre <b>Wikipedia en español y los resúmenes de artículos de las bases indicadas</b>. No revisa libros, PDF, noticias, trabajos de otros estudiantes ni la mayoría de páginas web, así que <b>que no aparezcan coincidencias no prueba que el texto sea original</b>. No se calcula ningún porcentaje de plagio. Los resultados son orientativos y no reemplazan un detector profesional de plagio ni la revisión de tu profesor.</div>
+  </div>
+</div></section>
+
+<!-- ===== APA ===== -->
+<section id="apa"><div class="wrap">
+  <h2>🧾 Generador de referencias APA 7</h2>
+  <p class="sub">Para páginas web y artículos de revista. Escribe el autor como «Apellido, N.»; si hay varios, sepáralos con punto y coma. También puedes llenarlo desde el buscador con el botón «Usar en APA».</p>
+  <div class="panel">
+    <div class="grid">
+      <div><label for="aTipo">Tipo de fuente</label>
+        <select id="aTipo"><option value="web">Página web</option><option value="revista">Artículo de revista</option></select></div>
+      <div><label for="aAutor">Autor(es)</label><input id="aAutor" placeholder="García, M.; Pérez, L."></div>
+      <div><label for="aAnio">Año de publicación</label><input id="aAnio" placeholder="2024" maxlength="4"></div>
+      <div><label for="aTitulo">Título del documento</label><input id="aTitulo" placeholder="Título del artículo o página"></div>
+      <div><label for="aSitio" id="lblSitio">Nombre del sitio web</label><input id="aSitio" placeholder="DANE"></div>
+      <div><label for="aUrl">URL</label><input id="aUrl" type="url" placeholder="https://..."></div>
+    </div>
+    <div class="fila" style="margin-top:16px">
+      <button class="btn" id="btnRef">Generar referencia</button>
+      <button class="btn ghost" id="btnCopiar">📋 Copiar referencia</button>
+      <button class="btn mor" id="btnGuardarRef">＋ Guardar en mi lista</button>
+    </div>
+    <div id="refSalida" aria-live="polite">Tu referencia aparecerá aquí.</div>
+    <p class="msg" id="msgCopia"></p>
+    <h3 class="tit">Mi lista de referencias <small class="temaActivo"></small></h3>
+    <div id="biblio"></div>
+    <div class="fila" style="margin-top:12px;align-items:center"><button class="btn" id="btnCopiarLista">📋 Copiar lista (orden alfabético)</button><span class="msg" id="msgLista" style="margin:0"></span></div>
+  </div>
+</div></section>
+
+<!-- ===== GUÍA ===== -->
+<section id="guia" class="alt"><div class="wrap">
+  <h2>💡 Guía para evitar el plagio</h2>
+  <p class="sub">Lo esencial, en pocas palabras.</p>
+  <div class="grid">
+    <div class="tarjeta"><div class="ico">🚫</div><h3>¿Qué es el plagio?</h3><p>Presentar ideas, palabras o datos de otra persona como propios, sin reconocer su autoría. Incluye copiar, parafrasear sin citar y reutilizar trabajos propios sin avisar.</p></div>
+    <div class="tarjeta"><div class="ico">❝</div><h3>Cita textual</h3><p>Copiar las palabras exactas de un autor. Va entre comillas e incluye autor, año y página: (Pérez, 2022, p. 14).</p></div>
+    <div class="tarjeta"><div class="ico">✍️</div><h3>Paráfrasis</h3><p>Explicar la idea de otro con tus propias palabras y estructura. También se cita: cambiar algunas palabras no basta.</p></div>
+    <div class="tarjeta"><div class="ico">📌</div><h3>¿Cuándo citar?</h3><p>Cuando uses datos, cifras, fechas, definiciones, teorías, imágenes o ideas que no sean conocimiento común ni tuyas.</p></div>
+    <div class="tarjeta"><div class="ico">🤖</div><h3>IA con responsabilidad</h3><p>Consulta primero las reglas de tu profesor. Si la usas, decláralo, verifica cada dato en fuentes reales (la IA puede inventar citas) y no entregues texto generado como si fuera tuyo.</p></div>
+    <div class="tarjeta"><div class="ico">✅</div><h3>5 consejos</h3>
+      <ul>
+        <li>Anota la fuente mientras lees.</li>
+        <li>Empieza con tus propias ideas.</li>
+        <li>Parafrasea y cita siempre.</li>
+        <li>Arma la lista de referencias mientras escribes.</li>
+        <li>Pregunta al profesor si tienes dudas.</li>
+      </ul></div>
+  </div>
+</div></section>
+
+<!-- ===== LISTA ===== -->
+<section id="lista"><div class="wrap">
+  <h2>☑️ Lista de verificación</h2>
+  <p class="sub">Antes de entregar, marca cada punto.</p>
+  <div class="panel" style="max-width:640px">
+    <div id="items"></div>
+    <div class="barra" aria-hidden="true"><div id="progreso"></div></div>
+    <p id="estadoLista" class="msg" aria-live="polite" style="margin:0"></p>
+    <button class="btn ghost chico" id="btnReiniciar" style="margin-top:12px">Reiniciar lista</button>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><b>AntiPlagio</b> — Investiga, crea y cita<br>Herramienta educativa. No reemplaza un detector profesional de plagio.</div></footer>
+
+<script src="script.js"></script>
+</body>
+</html>

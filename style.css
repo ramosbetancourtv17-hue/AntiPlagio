@@ -129,3 +129,6 @@ footer b{font-family:var(--titulos);color:#fff}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
+.temaActivo{color:var(--violeta-osc);font-weight:700}
+.refitem{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;border-bottom:1px solid var(--borde);padding:10px 0;word-break:break-word}
+.refitem span{padding-left:1.6rem;text-indent:-1.6rem}
